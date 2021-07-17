@@ -1,4 +1,4 @@
-namespace LiveClinic.Order.Domain
+namespace LiveClinic.Ordering.Domain
 {
     public enum OrderStatus
     {

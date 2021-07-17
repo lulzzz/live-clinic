@@ -5,9 +5,17 @@ namespace LiveClinic.Billing.Domain
 {
     public class InvoiceItem:Entity<Guid>
     {
-        public Guid DrugId { get; set; }
-        public double Quantity  { get; set; }
-        public double UnitPrice  { get; set; }
-        public Guid InvoiceId { get; set; }
+        public Guid PriceCatalogId { get;  }
+        public double Quantity  { get;  }
+        public Money QuotePrice  { get;}
+        public Guid InvoiceId { get; }
+
+        public InvoiceItem(Guid priceCatalogId, double quantity, Money quotePrice, Guid invoiceId)
+        {
+            PriceCatalogId = priceCatalogId;
+            Quantity = quantity;
+            QuotePrice = quotePrice;
+            InvoiceId = invoiceId;
+        }
     }
 }
