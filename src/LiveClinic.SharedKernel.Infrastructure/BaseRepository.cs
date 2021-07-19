@@ -46,12 +46,12 @@ namespace LiveClinic.SharedKernel.Infrastructure
 
         public virtual async Task<bool> ExistsAsync(T entity)
         {
-            return null != await GetAsync(entity.Id);
+            return null !=  await GetAll(x=>x.Id.Equals(entity.Id)).FirstOrDefaultAsync();
         }
 
         public async Task<bool> ExistsAsync<TC,TId>(TC entity) where TC : Entity<TId>
         {
-            return null != await Context.Set<TC>().FindAsync(entity.Id);
+            return null != await Context.Set<TC>().AsNoTracking().FirstOrDefaultAsync(x=>x.Id.Equals(entity.Id));
         }
 
         public virtual Task CreateOrUpdateAsync(T entity)
@@ -81,7 +81,7 @@ namespace LiveClinic.SharedKernel.Infrastructure
             if (updates.Any())
                 DbSet.UpdateRange(entities);
 
-           await Context.SaveChangesAsync();
+            await Context.SaveChangesAsync();
         }
 
         public virtual async Task CreateOrUpdateAsync<TC,TId>(IEnumerable<TC> entities) where TC : Entity<TId>

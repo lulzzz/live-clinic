@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.SharedKernel.Inf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Inventory.Persistence.Tests", "test\LiveClinic.Inventory.Persistence.Tests\LiveClinic.Inventory.Persistence.Tests.csproj", "{77FD619F-35C2-4A1C-B573-117929C4025C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.SharedKernel.Infrastructure.Tests", "test\LiveClinic.SharedKernel.Infrastructure.Tests\LiveClinic.SharedKernel.Infrastructure.Tests.csproj", "{2CEECC81-4385-4A2A-8BC3-7E625F76C611}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{77FD619F-35C2-4A1C-B573-117929C4025C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77FD619F-35C2-4A1C-B573-117929C4025C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77FD619F-35C2-4A1C-B573-117929C4025C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CEECC81-4385-4A2A-8BC3-7E625F76C611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CEECC81-4385-4A2A-8BC3-7E625F76C611}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CEECC81-4385-4A2A-8BC3-7E625F76C611}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CEECC81-4385-4A2A-8BC3-7E625F76C611}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9687325A-B6CB-444E-B2A9-A2BDDC4A0D5C} = {1F90AEB1-284F-4EFD-8100-9782F4F9EBAD}
@@ -72,5 +78,6 @@ Global
 		{D0B8DE06-B66C-483A-82B7-6751AE39D635} = {959F8204-4948-4CC9-B525-38DA652BFC08}
 		{3ACD9BEA-CA3A-4155-BE4E-5C2DECFA82B8} = {1F90AEB1-284F-4EFD-8100-9782F4F9EBAD}
 		{77FD619F-35C2-4A1C-B573-117929C4025C} = {959F8204-4948-4CC9-B525-38DA652BFC08}
+		{2CEECC81-4385-4A2A-8BC3-7E625F76C611} = {1F90AEB1-284F-4EFD-8100-9782F4F9EBAD}
 	EndGlobalSection
 EndGlobal
