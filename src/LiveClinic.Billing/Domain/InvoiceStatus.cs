@@ -1,4 +1,4 @@
-namespace LiveClinic.Order.Domain
+namespace LiveClinic.Billing.Domain
 {
     public enum InvoiceStatus
     {
