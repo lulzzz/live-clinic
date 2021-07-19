@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using LiveClinic.SharedKernel.Domain;
+using LiveClinic.SharedKernel.Domain.Repositories;
 
-namespace LiveClinic.Inventory.Domain
+namespace LiveClinic.Inventory.Domain.Repositories
 {
-    public interface IDrugRepository: IRepository<Drug,Guid>
+    public interface IDrugRepository : IRepository<Drug, Guid>
     {
-        Task SaveStockTx(Stock stock);
-        IEnumerable<Drug> GetAllStock(Guid? drugId);
     }
 }

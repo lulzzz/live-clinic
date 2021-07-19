@@ -3,18 +3,14 @@ using MediatR;
 
 namespace LiveClinic.Inventory.Domain.Events
 {
-    public class StockReceived:INotification
+    public class StockReceived : INotification
     {
-        public Guid  TransactionId { get; }
-        public Guid  DrugId { get; }
-        public double  Quantity { get; }
-        public DateTime TimeStamp { get; }=new DateTime();
+        public Guid StockId { get; }
+        public DateTime TimeStamp { get; } = new DateTime();
 
-        public StockReceived(Guid transactionId, Guid drugId, double quantity)
+        public StockReceived(Guid stockId)
         {
-            TransactionId = transactionId;
-            DrugId = drugId;
-            Quantity = quantity;
+            StockId = stockId;
         }
     }
 }

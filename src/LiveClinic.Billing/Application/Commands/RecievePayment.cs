@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CSharpFunctionalExtensions;
 using LiveClinic.Billing.Domain;
+using LiveClinic.Billing.Domain.Repositories;
 using MediatR;
 using Serilog;
 
@@ -38,7 +39,7 @@ namespace LiveClinic.Billing.Application.Commands
             {
                 var invoice =await _invoiceRepository.GetAsync(request.InvoiceId);
 
-                invoice.MakePayment();
+                // invoice.MakePayment();
 
                 return Result.Success();
             }

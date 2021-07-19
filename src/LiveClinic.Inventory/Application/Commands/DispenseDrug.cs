@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using CSharpFunctionalExtensions;
 using LiveClinic.Inventory.Domain;
 using LiveClinic.Inventory.Domain.Events;
+using LiveClinic.Inventory.Domain.Repositories;
 using MediatR;
 using Serilog;
 
@@ -13,13 +14,13 @@ namespace LiveClinic.Inventory.Application.Commands
     {
         public Guid DrugId { get; }
         public string BatchNo { get; }
-        public double Quantiy { get; }
+        public double Quantity { get; }
 
-        public DispenseDrug(Guid drugId, string batchNo, double quantiy)
+        public DispenseDrug(Guid drugId, string batchNo, double quantity)
         {
             DrugId = drugId;
             BatchNo = batchNo;
-            Quantiy = quantiy;
+            Quantity = quantity;
         }
     }
 
@@ -40,12 +41,13 @@ namespace LiveClinic.Inventory.Application.Commands
             {
                 var drug = await  _drugRepository.GetAsync(request.DrugId);
                 if (null == drug)
-                    throw new Exception("Drug not Found!");
+                    throw new Exception("Drug NOT Found!");
 
-                var tx= drug.Dispense(request.BatchNo,request.Quantiy);
-                _drugRepository.SaveStockTx(tx);
+                var dispenseStock = drug.Dispense(request.BatchNo,request.Quantity);
+                await _drugRepository.CreateOrUpdateAsync<StockTransaction,Guid>(new[] {dispenseStock});
 
-                await _mediator.Publish(new DrugDispensed(tx.Id, tx.DrugId,tx.Quantity), cancellationToken);
+                await _mediator.Publish(new DrugDispensed(dispenseStock.Id), cancellationToken);
+
                 return Result.Success();
             }
             catch (Exception e)

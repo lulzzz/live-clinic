@@ -7,6 +7,7 @@ using AutoMapper;
 using CSharpFunctionalExtensions;
 using LiveClinic.Inventory.Application.Dtos;
 using LiveClinic.Inventory.Domain;
+using LiveClinic.Inventory.Domain.Repositories;
 using MediatR;
 using Serilog;
 
@@ -39,15 +40,15 @@ namespace LiveClinic.Inventory.Application.Queries
             try
             {
                 var drugs=new List<Drug>();
+
                 if(request.DrugId.HasValue)
-                    drugs =  _drugRepository.GetAllStock(request.DrugId.Value).ToList();
+                    drugs =  _drugRepository.GetAll(x=>x.Id==request.DrugId.Value).ToList();
                 else
-                    drugs =  _drugRepository.GetAllStock(null).ToList();
+                    drugs =  _drugRepository.GetAll().ToList();
 
-                var dtp = _mapper.Map<List<InventoryDto>>(drugs);
+                var inventoryDtos = _mapper.Map<List<InventoryDto>>(drugs);
 
-
-                return Task.FromResult(Result.Success(dtp));
+                return Task.FromResult(Result.Success(inventoryDtos));
             }
             catch (Exception e)
             {

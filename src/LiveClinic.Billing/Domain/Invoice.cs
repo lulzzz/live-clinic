@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using LiveClinic.Billing.Application.Dtos;
-using LiveClinic.Order.Domain;
 using LiveClinic.SharedKernel;
 using LiveClinic.SharedKernel.Domain;
 

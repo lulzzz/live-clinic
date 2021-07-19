@@ -1,7 +1,7 @@
 namespace LiveClinic.Inventory.Domain
 {
-    public enum Action
+    public enum Movement
     {
-        In,Out
+        Received,Dispensed
     }
 }

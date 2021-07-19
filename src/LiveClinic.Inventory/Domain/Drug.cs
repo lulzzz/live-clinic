@@ -8,7 +8,7 @@ namespace LiveClinic.Inventory.Domain
     {
         public string Code { get;  }
         public string Name { get;  }
-        public ICollection<Stock> Stocks { get;} = new List<Stock>();
+        public ICollection<StockTransaction> Transactions { get;} = new List<StockTransaction>();
         private Drug()
         {
         }
@@ -17,16 +17,16 @@ namespace LiveClinic.Inventory.Domain
             Code = code;
             Name = name;
         }
-        public Stock AddStock(string batchNo,double quantity)
+        public StockTransaction ReceiveStock(string batchNo,double quantity)
         {
-            var tx = new Stock(batchNo, Action.In, quantity, Id);
-            Stocks.Add(tx);
+            var tx = new StockTransaction(batchNo, Movement.Received, quantity, Id);
+            Transactions.Add(tx);
             return tx;
         }
-        public Stock Dispense(string batchNo,double quantity)
+        public StockTransaction Dispense(string batchNo,double quantity)
         {
-            var tx = new Stock(batchNo, Action.Out, quantity, Id);
-            Stocks.Add(new Stock(batchNo,Action.Out,quantity,Id));
+            var tx = new StockTransaction(batchNo, Movement.Dispensed, quantity, Id);
+            Transactions.Add(tx);
             return tx;
         }
     }

@@ -5,6 +5,7 @@ using CSharpFunctionalExtensions;
 using LiveClinic.Ordering.Application.Dtos;
 using LiveClinic.Ordering.Domain;
 using LiveClinic.Ordering.Domain.Events;
+using LiveClinic.Ordering.Domain.Repositories;
 using MediatR;
 using Serilog;
 
