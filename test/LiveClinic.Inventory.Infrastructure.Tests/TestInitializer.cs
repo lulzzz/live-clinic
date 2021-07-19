@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using Serilog;
 
-namespace LiveClinic.Inventory.Core.Tests
+namespace LiveClinic.Inventory.Infrastructure.Tests
 {
     [SetUpFixture]
     public class TestInitializer
@@ -34,7 +34,6 @@ namespace LiveClinic.Inventory.Core.Tests
                 .AddDbContext<InventoryDbContext>(x => x.UseSqlite(connection));
 
             services.AddPersistence(config);
-            services.AddCore();
 
             ServiceProvider = services.BuildServiceProvider();
 

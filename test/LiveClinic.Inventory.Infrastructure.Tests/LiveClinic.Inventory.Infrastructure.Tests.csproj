@@ -7,16 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="MassTransit" Version="7.2.1" />
-        <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="7.2.1" />
-        <PackageReference Include="MassTransit.RabbitMQ" Version="7.2.1" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.8" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8" />
         <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
         <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" /> 
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
-        <PackageReference Include="NBuilder" Version="6.1.0" />
         <PackageReference Include="NUnit" Version="3.13.1" />
         <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
         <PackageReference Include="coverlet.collector" Version="3.0.2" />
@@ -25,17 +21,13 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\LiveClinic.SharedKernel.Infrastructure\LiveClinic.SharedKernel.Infrastructure.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Persistence" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Update="appsettings.json">
+      <None Update="appsettings.Test.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\LiveClinic.Inventory.Infrastructure\LiveClinic.Inventory.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using LiveClinic.Ordering.Infrastructure;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -7,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using Serilog;
 
-namespace LiveClinic.Inventory.Core.Tests
+namespace LiveClinic.Ordering.Core.Tests
 {
     [SetUpFixture]
     public class TestInitializer
@@ -31,7 +32,7 @@ namespace LiveClinic.Inventory.Core.Tests
             connection.Open();
 
             var services = new ServiceCollection()
-                .AddDbContext<InventoryDbContext>(x => x.UseSqlite(connection));
+                .AddDbContext<OrderingDbContext>(x => x.UseSqlite(connection));
 
             services.AddPersistence(config);
             services.AddCore();
@@ -43,13 +44,13 @@ namespace LiveClinic.Inventory.Core.Tests
 
         public static void ClearDb()
         {
-            var context = ServiceProvider.GetService<InventoryDbContext>();
+            var context = ServiceProvider.GetService<OrderingDbContext>();
             context.Database.EnsureCreated();
             context.EnsureSeeded();
         }
         public static void SeedData(params IEnumerable<object>[] entities)
         {
-            var context = ServiceProvider.GetService<InventoryDbContext>();
+            var context = ServiceProvider.GetService<OrderingDbContext>();
 
             foreach (IEnumerable<object> t in entities)
                 context.AddRange(t);

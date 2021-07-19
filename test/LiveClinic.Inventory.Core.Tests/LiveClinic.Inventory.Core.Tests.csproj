@@ -28,7 +28,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\LiveClinic.Inventory.Persistence\LiveClinic.Inventory.Persistence.csproj" />
+      <ProjectReference Include="..\..\src\LiveClinic.Inventory.Infrastructure\LiveClinic.Inventory.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

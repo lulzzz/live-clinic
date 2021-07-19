@@ -2,7 +2,6 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using CSharpFunctionalExtensions;
-using LiveClinic.Billing.Domain;
 using LiveClinic.Billing.Domain.Repositories;
 using MediatR;
 using Serilog;

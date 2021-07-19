@@ -1,15 +1,13 @@
-using System.Collections.Generic;
 using System.Linq;
 using LiveClinic.Inventory.Core.Application.Commands;
 using LiveClinic.Inventory.Core.Application.Queries;
 using LiveClinic.Inventory.Core.Domain;
-using LiveClinic.Inventory.Persistence.Tests.TestArtifacts;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using Serilog;
 
-namespace LiveClinic.Inventory.Persistence.Tests.Application.Commands
+namespace LiveClinic.Inventory.Core.Tests.Application.Commands
 {
     [TestFixture]
     public class ReceiveStockTests

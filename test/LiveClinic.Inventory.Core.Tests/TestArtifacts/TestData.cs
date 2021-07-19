@@ -1,9 +1,7 @@
 using System.Collections.Generic;
-using System.Linq;
-using FizzWare.NBuilder;
 using LiveClinic.Inventory.Core.Domain;
 
-namespace LiveClinic.Inventory.Persistence.Tests.TestArtifacts
+namespace LiveClinic.Inventory.Core.Tests.TestArtifacts
 {
     public class TestData
     {
