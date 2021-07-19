@@ -1,7 +1,7 @@
 using System;
 using MediatR;
 
-namespace LiveClinic.Inventory.Domain.Events
+namespace LiveClinic.Inventory.Core.Domain.Events
 {
     public class DrugDispensed : INotification
     {

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using LiveClinic.Inventory.Domain;
+using LiveClinic.Inventory.Core.Domain;
 
 namespace LiveClinic.Inventory.Persistence.Seed
 {

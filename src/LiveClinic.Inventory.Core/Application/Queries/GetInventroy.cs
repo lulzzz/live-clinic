@@ -5,19 +5,19 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using CSharpFunctionalExtensions;
-using LiveClinic.Inventory.Application.Dtos;
-using LiveClinic.Inventory.Domain;
-using LiveClinic.Inventory.Domain.Repositories;
+using LiveClinic.Inventory.Core.Application.Dtos;
+using LiveClinic.Inventory.Core.Domain;
+using LiveClinic.Inventory.Core.Domain.Repositories;
 using MediatR;
 using Serilog;
 
-namespace LiveClinic.Inventory.Application.Queries
+namespace LiveClinic.Inventory.Core.Application.Queries
 {
-    public class GetInventory:IRequest<Result<List<InventoryDto>>>
+    public class GetInventory : IRequest<Result<List<InventoryDto>>>
     {
         public Guid? DrugId { get; }
 
-        public GetInventory(Guid? drugId)
+        public GetInventory(Guid? drugId = null)
         {
             DrugId = drugId;
         }
@@ -35,16 +35,16 @@ namespace LiveClinic.Inventory.Application.Queries
             _drugRepository = drugRepository;
         }
 
-        public  Task<Result<List<InventoryDto>>> Handle(GetInventory request, CancellationToken cancellationToken)
+        public Task<Result<List<InventoryDto>>> Handle(GetInventory request, CancellationToken cancellationToken)
         {
             try
             {
                 var drugs=new List<Drug>();
 
                 if(request.DrugId.HasValue)
-                    drugs =  _drugRepository.GetAll(x=>x.Id==request.DrugId.Value).ToList();
+                    drugs =  _drugRepository.LoadAll(x=>x.Id==request.DrugId.Value).ToList();
                 else
-                    drugs =  _drugRepository.GetAll().ToList();
+                    drugs =  _drugRepository.LoadAll().ToList();
 
                 var inventoryDtos = _mapper.Map<List<InventoryDto>>(drugs);
 
@@ -54,7 +54,7 @@ namespace LiveClinic.Inventory.Application.Queries
             {
                 var msg = $"Error {request.GetType().Name}";
                 Log.Error(msg, e);
-                return Task.FromResult<>(Result.Failure(msg));
+                return Task.FromResult(Result.Failure<List<InventoryDto>>(msg));
             }
         }
     }

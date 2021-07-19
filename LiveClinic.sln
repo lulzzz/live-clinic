@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Inventory", "src\LiveClinic.Inventory\LiveClinic.Inventory.csproj", "{A7083B46-45B8-461D-A39B-8EF0FC0EC537}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Inventory.Core", "src\LiveClinic.Inventory.Core\LiveClinic.Inventory.Core.csproj", "{A7083B46-45B8-461D-A39B-8EF0FC0EC537}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Billing", "src\LiveClinic.Billing\LiveClinic.Billing.csproj", "{F0D5ACC8-0BCA-49D7-9A95-1D6106E210A5}"
 EndProject
@@ -25,6 +25,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Inventory.Persistence.Tests", "test\LiveClinic.Inventory.Persistence.Tests\LiveClinic.Inventory.Persistence.Tests.csproj", "{77FD619F-35C2-4A1C-B573-117929C4025C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.SharedKernel.Infrastructure.Tests", "test\LiveClinic.SharedKernel.Infrastructure.Tests\LiveClinic.SharedKernel.Infrastructure.Tests.csproj", "{2CEECC81-4385-4A2A-8BC3-7E625F76C611}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Inventory.Core.Tests", "test\LiveClinic.Inventory.Core.Tests\LiveClinic.Inventory.Core.Tests.csproj", "{7AC6C915-F95F-4FED-8B1E-9AF93BC43CAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,6 +70,10 @@ Global
 		{2CEECC81-4385-4A2A-8BC3-7E625F76C611}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CEECC81-4385-4A2A-8BC3-7E625F76C611}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CEECC81-4385-4A2A-8BC3-7E625F76C611}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AC6C915-F95F-4FED-8B1E-9AF93BC43CAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AC6C915-F95F-4FED-8B1E-9AF93BC43CAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AC6C915-F95F-4FED-8B1E-9AF93BC43CAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AC6C915-F95F-4FED-8B1E-9AF93BC43CAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9687325A-B6CB-444E-B2A9-A2BDDC4A0D5C} = {1F90AEB1-284F-4EFD-8100-9782F4F9EBAD}
@@ -79,5 +85,6 @@ Global
 		{3ACD9BEA-CA3A-4155-BE4E-5C2DECFA82B8} = {1F90AEB1-284F-4EFD-8100-9782F4F9EBAD}
 		{77FD619F-35C2-4A1C-B573-117929C4025C} = {959F8204-4948-4CC9-B525-38DA652BFC08}
 		{2CEECC81-4385-4A2A-8BC3-7E625F76C611} = {1F90AEB1-284F-4EFD-8100-9782F4F9EBAD}
+		{7AC6C915-F95F-4FED-8B1E-9AF93BC43CAA} = {959F8204-4948-4CC9-B525-38DA652BFC08}
 	EndGlobalSection
 EndGlobal

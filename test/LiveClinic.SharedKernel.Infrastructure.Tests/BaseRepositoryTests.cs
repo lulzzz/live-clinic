@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using Serilog;
 
-namespace LiveClinic.SharedKernel.Infrastructure.Tests.Persistence
+namespace LiveClinic.SharedKernel.Infrastructure.Tests
 {
     [TestFixture]
     public class BaseRepositoryTests

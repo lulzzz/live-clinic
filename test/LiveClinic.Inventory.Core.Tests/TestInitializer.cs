@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using LiveClinic.Inventory.Core;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -34,6 +35,7 @@ namespace LiveClinic.Inventory.Persistence.Tests
                 .AddDbContext<InventoryDbContext>(x => x.UseSqlite(connection));
 
             services.AddPersistence(config);
+            services.AddCore();
 
             ServiceProvider = services.BuildServiceProvider();
 

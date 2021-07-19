@@ -1,4 +1,5 @@
-using LiveClinic.Inventory.Domain.Repositories;
+using LiveClinic.Inventory.Core.Domain.Repositories;
+using LiveClinic.Inventory.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +17,7 @@ namespace LiveClinic.Inventory.Persistence
                     x =>  x.MigrationsAssembly(typeof(InventoryDbContext).Assembly.FullName)
                     ));
 
-            services.AddScoped<IDrugRepository, IDrugRepository>();
+            services.AddScoped<IDrugRepository, DrugRepository>();
             return services;
         }
     }

@@ -1,4 +1,4 @@
-namespace LiveClinic.Inventory.Domain
+namespace LiveClinic.Inventory.Core.Domain
 {
     public enum Movement
     {

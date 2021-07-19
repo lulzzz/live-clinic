@@ -1,5 +1,5 @@
 using System.Linq;
-using LiveClinic.Inventory.Domain;
+using LiveClinic.Inventory.Core.Domain;
 using LiveClinic.Inventory.Persistence.Seed;
 using LiveClinic.SharedKernel.Infrastructure;
 using Microsoft.EntityFrameworkCore;

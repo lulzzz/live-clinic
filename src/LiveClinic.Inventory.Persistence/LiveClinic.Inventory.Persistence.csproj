@@ -11,7 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\LiveClinic.Inventory\LiveClinic.Inventory.csproj" />
+      <ProjectReference Include="..\LiveClinic.Inventory.Core\LiveClinic.Inventory.Core.csproj" />
       <ProjectReference Include="..\LiveClinic.SharedKernel.Infrastructure\LiveClinic.SharedKernel.Infrastructure.csproj" />
     </ItemGroup>
 </Project>

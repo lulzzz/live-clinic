@@ -1,15 +1,15 @@
 using System;
 using LiveClinic.SharedKernel.Domain;
 
-namespace LiveClinic.Inventory.Domain
+namespace LiveClinic.Inventory.Core.Domain
 {
     public class StockTransaction : Entity<Guid>
     {
-        public string BatchNo { get; }
-        public Movement Movement { get; }
-        public DateTime MovementDate { get; }
-        public double Quantity { get; }
-        public Guid DrugId { get; }
+        public string BatchNo { get; private set; }
+        public Movement Movement { get;private set; }
+        public DateTime MovementDate { get; private set;}
+        public double Quantity { get; private set;}
+        public Guid DrugId { get;private set; }
 
         private StockTransaction()
         {
