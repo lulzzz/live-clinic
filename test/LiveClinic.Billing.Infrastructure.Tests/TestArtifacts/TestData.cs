@@ -4,6 +4,7 @@ using FizzWare.NBuilder;
 using LiveClinic.Billing.Core.Application.Dtos;
 using LiveClinic.Billing.Core.Domain.Common;
 using LiveClinic.Billing.Core.Domain.InvoiceAggregate;
+using LiveClinic.Billing.Core.Domain.PriceAggregate;
 
 namespace LiveClinic.Billing.Infrastructure.Tests.TestArtifacts
 {
@@ -28,9 +29,7 @@ namespace LiveClinic.Billing.Infrastructure.Tests.TestArtifacts
             {
                 invoices.Add(Invoice.Generate(invoiceDto));
             }
-
             return invoices;
-
         }
     }
 }

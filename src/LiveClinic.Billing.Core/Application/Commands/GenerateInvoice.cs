@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CSharpFunctionalExtensions;
@@ -13,9 +14,9 @@ namespace LiveClinic.Billing.Core.Application.Commands
 {
     public class GenerateInvoice:IRequest<Result>
     {
-        public InvoiceDto InvoiceDto { get; }
+        public OrderInvoiceDto InvoiceDto { get; }
 
-        public GenerateInvoice(InvoiceDto invoiceDto)
+        public GenerateInvoice(OrderInvoiceDto invoiceDto)
         {
             InvoiceDto = invoiceDto;
         }
@@ -38,7 +39,13 @@ namespace LiveClinic.Billing.Core.Application.Commands
         {
             try
             {
-                var invoice = Invoice.Generate(request.InvoiceDto);
+                var drugCodes = request.InvoiceDto.DrugCodes;
+
+                var prices = _priceCatalogRepository
+                    .GetAll(x => drugCodes.Contains(x.DrugCode))
+                    .ToList();
+
+                var invoice = Invoice.Generate(request.InvoiceDto,prices);
 
                await _invoiceRepository.CreateOrUpdateAsync(invoice);
 

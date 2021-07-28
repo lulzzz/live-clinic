@@ -10,5 +10,9 @@ namespace LiveClinic.Billing.Core.Domain.PriceAggregate
         public string DrugCode { get; set; }
         public string Name { get; set; }
         public Money UnitPrice { get; set; }
+        public override string ToString()
+        {
+            return $"{Name} @ {UnitPrice}";
+        }
     }
 }

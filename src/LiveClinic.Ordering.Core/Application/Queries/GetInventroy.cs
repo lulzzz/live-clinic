@@ -22,15 +22,12 @@ namespace LiveClinic.Ordering.Core.Application.Queries
         }
     }
 
-    public class GetInventoryHandler : IRequestHandler<GetOrders,Result<List<DrugOrder>>>
+    public class GetOrderHandler : IRequestHandler<GetOrders,Result<List<DrugOrder>>>
     {
-        private readonly IMapper _mapper;
         private readonly IDrugOrderRepository _drugOrderRepository;
 
-
-        public GetInventoryHandler( IMapper mapper,IDrugOrderRepository drugOrderRepository)
+        public GetOrderHandler(IDrugOrderRepository drugOrderRepository)
         {
-            _mapper = mapper;
             _drugOrderRepository = drugOrderRepository;
         }
 

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using LiveClinic.Billing.Core.Application.Dtos;
 using LiveClinic.Billing.Core.Domain.Common;
+using LiveClinic.Billing.Core.Domain.PriceAggregate;
 using LiveClinic.SharedKernel;
 using LiveClinic.SharedKernel.Domain;
 
@@ -46,6 +47,15 @@ namespace LiveClinic.Billing.Core.Domain.InvoiceAggregate
             return inv;
         }
 
+        public static Invoice Generate(OrderInvoiceDto invoiceDto, List<PriceCatalog> prices)
+        {
+            var inv = new Invoice(invoiceDto.Patient, invoiceDto.OrderId, invoiceDto.OrderNo);
+
+            inv.AddItems(invoiceDto.Items,prices);
+
+            return inv;
+        }
+
         public void MakePayment(Payment payment)
         {
             Payments.Add(payment);
@@ -57,6 +67,16 @@ namespace LiveClinic.Billing.Core.Domain.InvoiceAggregate
             foreach (var dto in itemDtos)
             {
                 Items.Add(new InvoiceItem(dto.PriceCatalogId, dto.Quantity, dto.UnitPrice, Id));
+            }
+        }
+
+        private void AddItems(List<OrderInvoiceItemDto> itemDtos, List<PriceCatalog> prices)
+        {
+            foreach (var dto in itemDtos)
+            {
+                var price = prices.FirstOrDefault(x => x.DrugCode == dto.DrugCode);
+                Items.Add(new InvoiceItem(price.Id, dto.Quantity,
+                    null != price ? price.UnitPrice : new Money(0, "KES"), Id));
             }
         }
 

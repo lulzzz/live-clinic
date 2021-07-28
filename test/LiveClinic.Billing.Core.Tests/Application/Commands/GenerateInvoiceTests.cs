@@ -12,12 +12,12 @@ namespace LiveClinic.Billing.Core.Tests.Application.Commands
     public class GenerateInvoiceTests
     {
         private IMediator _mediator;
-        private InvoiceDto _invoiceDto;
+        private OrderInvoiceDto _invoiceDto;
 
         [OneTimeSetUp]
         public void Init()
         {
-            _invoiceDto = TestData.GenerateInvoiceDtos().First();
+            _invoiceDto = TestData.GenerateOrderInvoiceDtos().First();
         }
 
         [SetUp]

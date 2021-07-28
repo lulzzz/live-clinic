@@ -1,6 +1,9 @@
 using System;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 using LiveClinic.Billing.Core.Domain.PriceAggregate;
 using LiveClinic.SharedKernel.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 namespace LiveClinic.Billing.Infrastructure.Repositories
 {
@@ -8,6 +11,11 @@ namespace LiveClinic.Billing.Infrastructure.Repositories
     {
         public PriceCatalogRepository(BillingDbContext context) : base(context)
         {
+        }
+
+        public Task<PriceCatalog> GetPrice(Expression<Func<PriceCatalog, bool>> predicate)
+        {
+           return GetAll(predicate).FirstOrDefaultAsync();
         }
     }
 }

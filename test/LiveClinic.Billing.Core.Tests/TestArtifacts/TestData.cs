@@ -27,6 +27,23 @@ namespace LiveClinic.Billing.Core.Tests.TestArtifacts
 
             return invoiceDtos;
         }
+
+        public static List<OrderInvoiceDto> GenerateOrderInvoiceDtos(int count=2,int itemCount=1,double qty=10)
+        {
+            var invoiceDtos = Builder<OrderInvoiceDto>.CreateListOfSize(count).All()
+                .With(x=>x.Patient="Mr. Maun")
+                .Build().ToList();
+            foreach (var testCar in invoiceDtos)
+            {
+                var models = Builder<OrderInvoiceItemDto>.CreateListOfSize(itemCount).All()
+                    .With(x=>x.DrugCode="PN")
+                    .With(x=>x.Quantity=qty)
+                    .Build().ToList();
+                testCar.Items = models;
+            }
+
+            return invoiceDtos;
+        }
         public static List<Invoice> GenerateInvoices(int count=2,int itemCount=2,double price=10,double qty=10)
         {
             List<Invoice> invoices = new List<Invoice>();
