@@ -2,9 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Inventory.Core", "src\LiveClinic.Inventory.Core\LiveClinic.Inventory.Core.csproj", "{A7083B46-45B8-461D-A39B-8EF0FC0EC537}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Billing", "src\LiveClinic.Billing\LiveClinic.Billing.csproj", "{F0D5ACC8-0BCA-49D7-9A95-1D6106E210A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Billing.Core", "src\LiveClinic.Billing.Core\LiveClinic.Billing.Core.csproj", "{F0D5ACC8-0BCA-49D7-9A95-1D6106E210A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Ordering", "src\LiveClinic.Ordering\LiveClinic.Ordering.csproj", "{10D3DB16-65E8-401C-BFF4-94590BF03030}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Ordering.Core", "src\LiveClinic.Ordering.Core\LiveClinic.Ordering.Core.csproj", "{10D3DB16-65E8-401C-BFF4-94590BF03030}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.SharedKernel", "src\LiveClinic.SharedKernel\LiveClinic.SharedKernel.csproj", "{A822FE0C-5113-42C4-90FD-6EA68D8D4E69}"
 EndProject
@@ -18,15 +18,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ordering", "Ordering", "{4D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedKernel", "SharedKernel", "{1F90AEB1-284F-4EFD-8100-9782F4F9EBAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Inventory.Persistence", "src\LiveClinic.Inventory.Persistence\LiveClinic.Inventory.Persistence.csproj", "{D0B8DE06-B66C-483A-82B7-6751AE39D635}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Inventory.Infrastructure", "src\LiveClinic.Inventory.Infrastructure\LiveClinic.Inventory.Infrastructure.csproj", "{D0B8DE06-B66C-483A-82B7-6751AE39D635}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.SharedKernel.Infrastructure", "src\LiveClinic.SharedKernel.Infrastructure\LiveClinic.SharedKernel.Infrastructure.csproj", "{3ACD9BEA-CA3A-4155-BE4E-5C2DECFA82B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Inventory.Persistence.Tests", "test\LiveClinic.Inventory.Persistence.Tests\LiveClinic.Inventory.Persistence.Tests.csproj", "{77FD619F-35C2-4A1C-B573-117929C4025C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Inventory.Infrastructure.Tests", "test\LiveClinic.Inventory.Infrastructure.Tests\LiveClinic.Inventory.Infrastructure.Tests.csproj", "{77FD619F-35C2-4A1C-B573-117929C4025C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.SharedKernel.Infrastructure.Tests", "test\LiveClinic.SharedKernel.Infrastructure.Tests\LiveClinic.SharedKernel.Infrastructure.Tests.csproj", "{2CEECC81-4385-4A2A-8BC3-7E625F76C611}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Inventory.Core.Tests", "test\LiveClinic.Inventory.Core.Tests\LiveClinic.Inventory.Core.Tests.csproj", "{7AC6C915-F95F-4FED-8B1E-9AF93BC43CAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Ordering.Infrastructure", "src\LiveClinic.Ordering.Infrastructure\LiveClinic.Ordering.Infrastructure.csproj", "{6B7833CF-68FC-40AB-AA57-54BB0B5D2A68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Ordering.Infrastructure.Tests", "test\LiveClinic.Ordering.Infrastructure.Tests\LiveClinic.Ordering.Infrastructure.Tests.csproj", "{61A07E02-970F-4D19-96C1-8AE18AC8C0CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Ordering.Core.Tests", "test\LiveClinic.Ordering.Core.Tests\LiveClinic.Ordering.Core.Tests.csproj", "{02CA1642-2721-4095-81A0-AD2A1DF5FF05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Billing.Infrastructure", "src\LiveClinic.Billing.Infrastructure\LiveClinic.Billing.Infrastructure.csproj", "{8379C0ED-6F5D-46C6-8B7D-C093F786C198}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Billing.Core.Tests", "test\LiveClinic.Billing.Core.Tests\LiveClinic.Billing.Core.Tests.csproj", "{34D42248-8020-46B5-94CC-12C09F03D063}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveClinic.Billing.Infrastructure.Tests", "test\LiveClinic.Billing.Infrastructure.Tests\LiveClinic.Billing.Infrastructure.Tests.csproj", "{D2C1EEEA-A365-437B-B1F9-4C8298BEF131}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,6 +86,30 @@ Global
 		{7AC6C915-F95F-4FED-8B1E-9AF93BC43CAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AC6C915-F95F-4FED-8B1E-9AF93BC43CAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AC6C915-F95F-4FED-8B1E-9AF93BC43CAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B7833CF-68FC-40AB-AA57-54BB0B5D2A68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B7833CF-68FC-40AB-AA57-54BB0B5D2A68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B7833CF-68FC-40AB-AA57-54BB0B5D2A68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B7833CF-68FC-40AB-AA57-54BB0B5D2A68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61A07E02-970F-4D19-96C1-8AE18AC8C0CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61A07E02-970F-4D19-96C1-8AE18AC8C0CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61A07E02-970F-4D19-96C1-8AE18AC8C0CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61A07E02-970F-4D19-96C1-8AE18AC8C0CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02CA1642-2721-4095-81A0-AD2A1DF5FF05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02CA1642-2721-4095-81A0-AD2A1DF5FF05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02CA1642-2721-4095-81A0-AD2A1DF5FF05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02CA1642-2721-4095-81A0-AD2A1DF5FF05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8379C0ED-6F5D-46C6-8B7D-C093F786C198}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8379C0ED-6F5D-46C6-8B7D-C093F786C198}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8379C0ED-6F5D-46C6-8B7D-C093F786C198}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8379C0ED-6F5D-46C6-8B7D-C093F786C198}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34D42248-8020-46B5-94CC-12C09F03D063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34D42248-8020-46B5-94CC-12C09F03D063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34D42248-8020-46B5-94CC-12C09F03D063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34D42248-8020-46B5-94CC-12C09F03D063}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2C1EEEA-A365-437B-B1F9-4C8298BEF131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2C1EEEA-A365-437B-B1F9-4C8298BEF131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2C1EEEA-A365-437B-B1F9-4C8298BEF131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2C1EEEA-A365-437B-B1F9-4C8298BEF131}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9687325A-B6CB-444E-B2A9-A2BDDC4A0D5C} = {1F90AEB1-284F-4EFD-8100-9782F4F9EBAD}
@@ -86,5 +122,11 @@ Global
 		{77FD619F-35C2-4A1C-B573-117929C4025C} = {959F8204-4948-4CC9-B525-38DA652BFC08}
 		{2CEECC81-4385-4A2A-8BC3-7E625F76C611} = {1F90AEB1-284F-4EFD-8100-9782F4F9EBAD}
 		{7AC6C915-F95F-4FED-8B1E-9AF93BC43CAA} = {959F8204-4948-4CC9-B525-38DA652BFC08}
+		{6B7833CF-68FC-40AB-AA57-54BB0B5D2A68} = {4D5BC703-47C7-4459-8421-27932356A057}
+		{61A07E02-970F-4D19-96C1-8AE18AC8C0CC} = {4D5BC703-47C7-4459-8421-27932356A057}
+		{02CA1642-2721-4095-81A0-AD2A1DF5FF05} = {4D5BC703-47C7-4459-8421-27932356A057}
+		{8379C0ED-6F5D-46C6-8B7D-C093F786C198} = {9D9CB61D-EC4E-490F-B2C0-88A0E2ED4AE1}
+		{34D42248-8020-46B5-94CC-12C09F03D063} = {9D9CB61D-EC4E-490F-B2C0-88A0E2ED4AE1}
+		{D2C1EEEA-A365-437B-B1F9-4C8298BEF131} = {9D9CB61D-EC4E-490F-B2C0-88A0E2ED4AE1}
 	EndGlobalSection
 EndGlobal

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using LiveClinic.Inventory.Core;
+using LiveClinic.Inventory.Infrastructure;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using Serilog;
 
-namespace LiveClinic.Inventory.Persistence.Tests
+namespace LiveClinic.Inventory.Core.Tests
 {
     [SetUpFixture]
     public class TestInitializer
