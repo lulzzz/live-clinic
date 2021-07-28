@@ -10,7 +10,7 @@ using LiveClinic.Ordering.Core.Domain.Repositories;
 using MediatR;
 using Serilog;
 
-namespace LiveClinic.Inventory.Core.Application.Queries
+namespace LiveClinic.Ordering.Core.Application.Queries
 {
     public class GetOrders : IRequest<Result<List<DrugOrder>>>
     {

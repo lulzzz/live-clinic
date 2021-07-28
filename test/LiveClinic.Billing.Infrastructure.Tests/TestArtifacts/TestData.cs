@@ -4,13 +4,12 @@ using FizzWare.NBuilder;
 using LiveClinic.Billing.Core.Application.Dtos;
 using LiveClinic.Billing.Core.Domain.Common;
 using LiveClinic.Billing.Core.Domain.InvoiceAggregate;
-using LiveClinic.Billing.Core.Domain.PriceAggregate;
 
-namespace LiveClinic.Billing.Core.Tests.TestArtifacts
+namespace LiveClinic.Billing.Infrastructure.Tests.TestArtifacts
 {
     public class TestData
     {
-        public static List<InvoiceDto> GenerateInvoiceDtos(int count=2,int itemCount=2,double price=10,double qty=10)
+        public static List<Invoice> GenerateInvoices(int count=2,int itemCount=2,double price=10,double qty=10)
         {
             List<Invoice> invoices = new List<Invoice>();
             var invoiceDtos = Builder<InvoiceDto>.CreateListOfSize(count).All()
@@ -25,13 +24,7 @@ namespace LiveClinic.Billing.Core.Tests.TestArtifacts
                 testCar.Items = models;
             }
 
-            return invoiceDtos;
-        }
-        public static List<Invoice> GenerateInvoices(int count=2,int itemCount=2,double price=10,double qty=10)
-        {
-            List<Invoice> invoices = new List<Invoice>();
-
-            foreach (var invoiceDto in GenerateInvoiceDtos(count,itemCount,price,qty))
+            foreach (var invoiceDto in invoiceDtos)
             {
                 invoices.Add(Invoice.Generate(invoiceDto));
             }

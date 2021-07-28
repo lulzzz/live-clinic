@@ -7,10 +7,14 @@ namespace LiveClinic.Billing.Core.Domain.InvoiceAggregate
 {
     public class Payment:Entity<Guid>
     {
-        public DateTime ReceiptDate {get;}
-        public string ReceiptNo { get; set; }
-        public Money AmountPaid {get;}
-        public Guid InvoiceId {get;}
+        public DateTime ReceiptDate {get;private set;}
+        public string ReceiptNo { get; private set; }
+        public Money AmountPaid {get;private set;}
+        public Guid InvoiceId {get;private set;}
+
+        private Payment()
+        {
+        }
 
         public Payment(Money amountPaid, Guid invoiceId)
         {
