@@ -1,7 +1,8 @@
 using System;
-using LiveClinic.Billing.Domain;
+using LiveClinic.Billing.Core.Domain.Common;
+using LiveClinic.Billing.Core.Domain;
 
-namespace LiveClinic.Billing.Application.Dtos
+namespace LiveClinic.Billing.Core.Application.Dtos
 {
     public class InvoiceItemDto
     {

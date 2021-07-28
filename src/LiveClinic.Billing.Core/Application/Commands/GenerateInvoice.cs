@@ -2,13 +2,14 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using CSharpFunctionalExtensions;
-using LiveClinic.Billing.Application.Dtos;
-using LiveClinic.Billing.Domain;
-using LiveClinic.Billing.Domain.Repositories;
+using LiveClinic.Billing.Core.Application.Dtos;
+using LiveClinic.Billing.Core.Domain.InvoiceAggregate;
+using LiveClinic.Billing.Core.Domain.PriceAggregate;
+using LiveClinic.Billing.Core.Domain;
 using MediatR;
 using Serilog;
 
-namespace LiveClinic.Billing.Application.Commands
+namespace LiveClinic.Billing.Core.Application.Commands
 {
     public class GenerateInvoice:IRequest<Result>
     {

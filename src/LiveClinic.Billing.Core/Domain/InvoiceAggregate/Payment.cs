@@ -1,8 +1,9 @@
 using System;
+using LiveClinic.Billing.Core.Domain.Common;
 using LiveClinic.SharedKernel;
 using LiveClinic.SharedKernel.Domain;
 
-namespace LiveClinic.Billing.Domain
+namespace LiveClinic.Billing.Core.Domain.InvoiceAggregate
 {
     public class Payment:Entity<Guid>
     {
@@ -16,6 +17,7 @@ namespace LiveClinic.Billing.Domain
             ReceiptNo = Utils.GenerateNo("R");
             AmountPaid = amountPaid;
             InvoiceId = invoiceId;
+            ReceiptDate=DateTime.Now;
         }
     }
 }

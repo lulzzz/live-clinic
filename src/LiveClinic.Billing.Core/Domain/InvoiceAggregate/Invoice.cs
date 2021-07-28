@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
-using LiveClinic.Billing.Application.Dtos;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using LiveClinic.Billing.Core.Application.Dtos;
+using LiveClinic.Billing.Core.Domain.Common;
 using LiveClinic.SharedKernel;
 using LiveClinic.SharedKernel.Domain;
 
-namespace LiveClinic.Billing.Domain
+namespace LiveClinic.Billing.Core.Domain.InvoiceAggregate
 {
     public class Invoice : AggregateRoot<Guid>
     {
@@ -16,6 +19,9 @@ namespace LiveClinic.Billing.Domain
         public InvoiceStatus Status { get; private set; }
         public List<InvoiceItem> Items { get; } = new List<InvoiceItem>();
         public List<Payment> Payments { get; }=new List<Payment>();
+        [NotMapped] public Money TotalAmount => GetTotalValue();
+        [NotMapped] public Money TotalPaid => GetPaidValue();
+        [NotMapped] public Money Balance => GetBalanceValue();
         private Invoice(string patient, Guid orderId, string orderNo)
         {
             Patient = patient;
@@ -35,10 +41,11 @@ namespace LiveClinic.Billing.Domain
             return inv;
         }
 
-        public void MakePayment(Money amount)
+        public void MakePayment(Payment payment)
         {
-            Payments.Add(new Payment(amount, Id));
-            Status = InvoiceStatus.Paid;
+            Payments.Add(payment);
+
+            Status = Balance.Amount == 0 ? InvoiceStatus.Paid : InvoiceStatus.NotPaid;
         }
 
         private void AddItems(List<InvoiceItemDto> itemDtos)
@@ -47,6 +54,23 @@ namespace LiveClinic.Billing.Domain
             {
                 Items.Add(new InvoiceItem(dto.PriceCatalogId, dto.Quantity, dto.UnitPrice, Id));
             }
+        }
+
+        private Money GetTotalValue()
+        {
+            var totalAmount = Items.Sum(x => x.LineTotal.Amount);
+            return new Money(totalAmount, Items.First().QuotePrice.Currency);
+        }
+        private Money GetPaidValue()
+        {
+            var totalAmount = Payments.Sum(x => x.AmountPaid.Amount);
+            return new Money(totalAmount, Payments.First().AmountPaid.Currency);
+        }
+
+        private Money GetBalanceValue()
+        {
+            var totalAmount = TotalAmount.Amount - TotalPaid.Amount;
+            return new Money(totalAmount, Payments.First().AmountPaid.Currency);
         }
     }
 }

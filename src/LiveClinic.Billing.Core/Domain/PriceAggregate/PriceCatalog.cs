@@ -1,7 +1,8 @@
 using System;
+using LiveClinic.Billing.Core.Domain.Common;
 using LiveClinic.SharedKernel.Domain;
 
-namespace LiveClinic.Billing.Domain
+namespace LiveClinic.Billing.Core.Domain.PriceAggregate
 {
     public class PriceCatalog:AggregateRoot<Guid>
     {

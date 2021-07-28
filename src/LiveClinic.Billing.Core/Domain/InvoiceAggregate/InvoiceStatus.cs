@@ -1,4 +1,4 @@
-namespace LiveClinic.Billing.Domain
+namespace LiveClinic.Billing.Core.Domain.InvoiceAggregate
 {
     public enum InvoiceStatus
     {

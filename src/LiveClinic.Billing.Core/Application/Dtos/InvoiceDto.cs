@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace LiveClinic.Billing.Application.Dtos
+namespace LiveClinic.Billing.Core.Application.Dtos
 {
     public class InvoiceDto
     {

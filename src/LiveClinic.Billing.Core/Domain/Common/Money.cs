@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using LiveClinic.SharedKernel.Domain;
 
-namespace LiveClinic.Billing.Domain
+namespace LiveClinic.Billing.Core.Domain.Common
 {
     public class Money:ValueObject<Money>
     {
@@ -22,6 +22,11 @@ namespace LiveClinic.Billing.Domain
         {
             yield return Amount;
             yield return Currency;
+        }
+
+        public override string ToString()
+        {
+            return $"{Amount:N} {Currency}";
         }
     }
 }

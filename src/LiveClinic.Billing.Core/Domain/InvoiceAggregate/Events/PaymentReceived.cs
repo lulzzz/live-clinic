@@ -1,6 +1,6 @@
 using System;
 
-namespace LiveClinic.Billing.Domain.Events
+namespace LiveClinic.Billing.Core.Domain.InvoiceAggregate.Events
 {
     public class PaymentReceived
     {

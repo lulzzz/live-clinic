@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using LiveClinic.Inventory.Core.Application.Queries;
 using LiveClinic.Inventory.Core.Domain;
+using LiveClinic.Inventory.Core.Tests.TestArtifacts;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;

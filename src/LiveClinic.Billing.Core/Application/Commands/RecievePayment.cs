@@ -2,18 +2,19 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using CSharpFunctionalExtensions;
-using LiveClinic.Billing.Domain.Repositories;
+using LiveClinic.Billing.Core.Domain.Common;
+using LiveClinic.Billing.Core.Domain.InvoiceAggregate;
 using MediatR;
 using Serilog;
 
-namespace LiveClinic.Billing.Application.Commands
+namespace LiveClinic.Billing.Core.Application.Commands
 {
     public class ReceivePayment:IRequest<Result>
     {
         public Guid InvoiceId { get; }
-        public double Amount  { get; }
+        public Money Amount  { get; }
 
-        public ReceivePayment(Guid invoiceId, double amount)
+        public ReceivePayment(Guid invoiceId, Money amount)
         {
             InvoiceId = invoiceId;
             Amount = amount;
@@ -36,9 +37,15 @@ namespace LiveClinic.Billing.Application.Commands
         {
             try
             {
+                var payment = new Payment(request.Amount, request.InvoiceId);
+
                 var invoice =await _invoiceRepository.GetAsync(request.InvoiceId);
 
-                // invoice.MakePayment();
+                invoice.MakePayment(payment);
+
+                _invoiceRepository.CreateOrUpdateAsync(invoice);
+                _invoiceRepository.CreateOrUpdateAsync<Payment,Guid>(new []{payment});
+
 
                 return Result.Success();
             }
