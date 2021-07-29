@@ -15,10 +15,12 @@ namespace LiveClinic.Ordering.Core.Application.Queries
     public class GetOrders : IRequest<Result<List<DrugOrder>>>
     {
         public string Patient { get; }
+        public Guid? OrderId  { get; }
 
-        public GetOrders(string patient="")
+        public GetOrders(Guid? orderId = null, string patient = "")
         {
             Patient = patient;
+            OrderId = orderId;
         }
     }
 
@@ -37,10 +39,17 @@ namespace LiveClinic.Ordering.Core.Application.Queries
             {
                 var drugOrders=new List<DrugOrder>();
 
-                if(string.IsNullOrWhiteSpace(request.Patient))
-                    drugOrders =  _drugOrderRepository.LoadAll(x=>x.Patient==request.Patient).ToList();
+                if (request.OrderId.HasValue)
+                {
+                    drugOrders = _drugOrderRepository.LoadAll(x => x.Id == request.OrderId).ToList();
+                }
                 else
-                    drugOrders =  _drugOrderRepository.LoadAll().ToList();
+                {
+                    if (string.IsNullOrWhiteSpace(request.Patient))
+                        drugOrders = _drugOrderRepository.LoadAll().ToList();
+                    else
+                        drugOrders = _drugOrderRepository.LoadAll(x => x.Patient == request.Patient).ToList();
+                }
 
                 return Task.FromResult(Result.Success(drugOrders));
             }

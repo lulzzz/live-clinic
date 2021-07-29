@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using LiveClinic.SharedKernel.Infrastructure.Tests.TestArtifacts;
+using MassTransit;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -19,7 +20,7 @@ namespace LiveClinic.SharedKernel.Infrastructure.Tests
         public void Init()
         {
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
+                .MinimumLevel.Information()
                 .WriteTo.Console()
                 .CreateLogger();
 
@@ -37,7 +38,22 @@ namespace LiveClinic.SharedKernel.Infrastructure.Tests
             services.AddTransient<TestDbContext>();
             services.AddTransient<ITestCarRepository, TestCarRepository>();
 
+            services.AddMassTransit(x =>
+            {
+                x.AddConsumer<TestEventMessageConsumer>();
+                x.UsingInMemory((context, cfg) =>
+                {
+                    cfg.TransportConcurrencyLimit = 100;
+                    cfg.ConfigureEndpoints(context);
+                });
+            });
+
+
+            services.AddEventBus(config);
+
             ServiceProvider = services.BuildServiceProvider();
+            var bus = ServiceProvider.GetRequiredService<IBusControl>();
+            bus.Start();
         }
 
         public static void ClearDb()

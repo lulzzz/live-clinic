@@ -19,5 +19,10 @@ namespace LiveClinic.Ordering.Core.Domain
             DrugOrderId = drugOrderId;
             Generated = DateTime.Now;
         }
+
+        public override string ToString()
+        {
+            return $"{DrugCode} {Quantity}>{Days} days";
+        }
     }
 }

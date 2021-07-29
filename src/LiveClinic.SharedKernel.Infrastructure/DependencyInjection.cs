@@ -1,3 +1,5 @@
+using LiveClinic.SharedKernel.EventBus;
+using LiveClinic.SharedKernel.Infrastructure.EventBus;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -6,15 +8,10 @@ namespace LiveClinic.SharedKernel.Infrastructure
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services,
+        public static IServiceCollection AddEventBus(this IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddMassTransit(x =>
-            {
-                x.UsingInMemory();
-            });
-
-            // services.AddMassTransitHostedService();
+            services.AddScoped<IEventBus, MassTransitEventBus>();
             return services;
         }
     }

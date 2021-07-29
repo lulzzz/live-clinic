@@ -19,7 +19,7 @@ namespace LiveClinic.Ordering.Core.Tests.Application.Commands
             _mediator = TestInitializer.ServiceProvider.GetService<IMediator>();
         }
         [Test]
-        public void should_Dispense_InStock()
+        public void should_PrescribeDrugs()
         {
             var dto = TestData.CreateTestDrugOrderDto();
             var res = _mediator.Send( new  PrescribeDrugs(dto)).Result;
